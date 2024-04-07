@@ -1,4 +1,4 @@
-const model = require('../models/articulosModel');
+const model = require('../models/articulosModelFS');
 
 const home = (req, res) => {
     res.send(model.getAll());
