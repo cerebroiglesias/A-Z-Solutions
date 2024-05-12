@@ -1,5 +1,6 @@
 const url = require('url');
 const cookie = require('cookie');
+const { title } = require('process');
 
 const okResponse = { proceso: 'ok'};
 
@@ -7,15 +8,27 @@ const home = (req, res) => {
     if(req.session.contador && req.session.contador > 0){
         if(req.session.name){ 
             if(req.session.contador === 1){
-                res.send(`Bienvenido ${req.session.name}`);
+                res.render('index', {
+                    title: `Bienvenido ${req.session.name}`,
+                    message: `Bienvenido ${req.session.name}`
+                });
             }else{
-                res.send(`${req.session.name}, Visitaste la pagina ${req.session.contador} veces`);
+                res.render('index', {
+                    title: `Bienvenido ${req.session.name}`,
+                    message: `${req.session.name}, Visitaste la pagina ${req.session.contador} veces`
+                });
             }
         }else{
             if(req.session.contador === 1){
-                res.send(`Te damos la bienvenida`);
+                res.render('index', {
+                    title: `Home`,
+                    message: `Te damos la bienvenida`
+                });
             }else{
-                res.send(`Te damos la bienvenida, Visitaste la pagina ${req.session.contador} veces`);
+                res.render('index', {
+                    title: `Home`,
+                    message: `Te damos la bienvenida, Visitaste la pagina ${req.session.contador} veces`
+                });
             }
         }
     }else{

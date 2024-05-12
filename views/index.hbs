@@ -1,0 +1,55 @@
+<div class="container">
+    <p>{{message}}</p>
+    
+    {{!-- input para enviar mensajes al servidor --}}
+    <input id="message" type="text" />
+    {{!-- lista de mensajes de websocket --}}
+    <ul id="messages" class="list-group"></ul>
+    {{!-- forms de articulos --}}
+    <h1 class="text-center full-width">ARTICULOS</h1>
+    <div class="row">
+        <div id="createForm" class="col-6 text-center">
+            <form action="/articulos" method="POST">
+                <h1>CREACION DE ARTICULOS</h1>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="create-name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" name="price" id="create-price" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="createdAt">CreatedAt</label>
+                    <input type="date" name="createdAt" id="create-createdAt" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+            </form>
+        </div>
+        <div class="col-6 text-center">
+            <form id="updateForm" action="/articulos/" method="POST">
+                <input type="hidden" name="_METHOD" value="PUT"/>
+                <h1>ACTUALIZACION DE ARTICULOS</h1>
+                <div class="form-group">
+                    <label for="id">Id</label>
+                    <input type="number" name="id" id="update-id" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="update-name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" name="price" id="update-price" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="createdAt">CreatedAt</label>
+                    <input type="date" name="createdAt" id="update-createdAt" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{{!-- importa el script --}}
+<script src="js/index.js"></script>
